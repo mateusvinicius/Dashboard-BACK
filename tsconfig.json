@@ -23,7 +23,8 @@
    
       "@Decorators/*":["./src/Decorators/*"],
       "@Controllers/*":["./src/Controllers/*"],
-      "@Services/*":["./src/Services/*"]
+      "@Services/*":["./src/Services/*"],
+      "@Interfaces/*":["./src/Interfaces/*"]
      }
    },
    "include": [

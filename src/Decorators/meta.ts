@@ -26,7 +26,7 @@ export enum ParameterType {
 export interface ParameterConfiguration {
   index: number;
   type: ParameterType;
-  name?: string;
+  name ?: string|Array<any>;
   data?: any;
 }
 
@@ -68,6 +68,7 @@ export interface ExpressMeta {
  * @interface ExpressMeta
  */
 export interface ExpressClass {
+  // eslint-disable-next-line camelcase
   __express_meta__?: ExpressMeta;
 }
 
@@ -79,6 +80,7 @@ export interface ExpressClass {
  */
 export function getMeta(target: ExpressClass): ExpressMeta {
   if (!target.__express_meta__) {
+    // eslint-disable-next-line no-param-reassign
     target.__express_meta__ = {
       url: '',
       routes: {},

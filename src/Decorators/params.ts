@@ -1,7 +1,7 @@
 import { ExpressMeta, ParameterType, getMeta } from './meta';
 
 function decoratorFactory(type: ParameterType) {
-  return function (name?: string): ParameterDecorator {
+  return function (name?: string|Array<any>): ParameterDecorator {
     return function (target: any, methodName: string, index: number) {
       const meta: ExpressMeta = getMeta(target);
 
