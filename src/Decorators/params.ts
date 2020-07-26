@@ -22,6 +22,6 @@ export const Request = decoratorFactory(ParameterType.REQUEST);
 /**
  * Express res object
  */
-export const Response = decoratorFactory(ParameterType.RESPONSE);
+export const Res = decoratorFactory(ParameterType.RESPONSE);
 
 export const Body = decoratorFactory(ParameterType.BODY);

@@ -1,7 +1,9 @@
-import { UserInterface } from '@Interfaces/User.interface';
-
 export default class UserService {
-  public async LoginUser(Usuario:UserInterface) {
+  public async Auth(email:string, password:string) {
+
+  }
+
+  public async CreateUser() {
 
   }
 }

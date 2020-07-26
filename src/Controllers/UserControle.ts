@@ -1,24 +1,26 @@
 import { Controller } from '@Decorators/Controller';
 import { Post } from '@Decorators/Route';
 import UserService from '@Services/UserService';
-import { Request, Response } from 'express';
-import { Body } from '@Decorators/params';
+import { Body, Res } from '@Decorators/params';
+import { Response } from 'express';
 
 @Controller('/Users')
 export default class UserController {
-  private User:UserService
+  UserService:UserService
 
   constructor() {
-    this.User = new UserService();
+    this.UserService = new UserService();
   }
 
   @Post('/')
-  create(@Body(['email', 'password']) body, res:Response) {
+  async auth(@Body(['email', 'password']) { email, password }:({email:string, password:string}), @Res() res:Response):Promise<Response> {
     try {
+      const user = await this.UserService.Auth(email, password);
 
+      return res.status(200);
     } catch (err) {
-      return res.status(200).json({
-        message: err.message,
+      res.status(401).json({
+        Error: err.message,
       });
     }
   }

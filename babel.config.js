@@ -27,7 +27,8 @@ module.exports = {
       alias: {
         "@Decorators":["./src/Decorators"],
         "@Controllers":["./src/Controllers"],
-        "@Services":["./src/Services"]
+        "@Services":["./src/Services"],
+        "@Interfaces":["./src/Interfaces"]
       }
     }],
     ["@babel/plugin-transform-flow-strip-types"],

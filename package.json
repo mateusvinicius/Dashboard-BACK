@@ -33,6 +33,7 @@
       "jest": "^26.0.1",
       "prettier": "^2.0.5",
       "reflect-metadata": "^0.1.13",
+      "sqlite3": "^5.0.0",
       "ts-jest": "^26.1.0",
       "ts-node": "3.3.0",
       "ts-node-dev": "^1.0.0-pre.49",
@@ -43,12 +44,17 @@
       "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
       "start": "ts-node src/index.ts",
       "dev": "ts-node-dev -r tsconfig-paths/register --respawn --ignore-watch node_modules --no-notify src/server.ts",
-      "test": "jest"
+      "test": "jest",
+      "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
    },
    "keywords": [],
    "author": "",
    "description": "",
    "dependencies": {
-      "express": "^4.17.1"
+      "express": "^4.17.1",
+      "pg": "^8.3.0",
+      "typeorm": "0.2.25",
+      "reflect-metadata": "^0.1.10",
+      "mysql": "^2.14.1"
    }
 }
