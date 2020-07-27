@@ -16,10 +16,9 @@ export default class UserController {
   async auth(@Body(['email', 'password']) { email, password }:({email:string, password:string}), @Res() res:Response):Promise<Response> {
     try {
       const user = await this.UserService.Auth(email, password);
-
       return res.status(200);
     } catch (err) {
-      res.status(401).json({
+      res.status(400).json({
         Error: err.message,
       });
     }

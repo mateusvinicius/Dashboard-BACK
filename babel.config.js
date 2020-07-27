@@ -28,7 +28,8 @@ module.exports = {
         "@Decorators":["./src/Decorators"],
         "@Controllers":["./src/Controllers"],
         "@Services":["./src/Services"],
-        "@Interfaces":["./src/Interfaces"]
+        "@Interfaces":["./src/Interfaces"],
+        "@Models":["./src/Models"]
       }
     }],
     ["@babel/plugin-transform-flow-strip-types"],

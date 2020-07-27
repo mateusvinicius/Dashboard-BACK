@@ -1,34 +1,25 @@
 import {
+
   Entity, PrimaryGeneratedColumn, Column, BaseEntity,
+
 } from 'typeorm';
-
-
 
 @Entity()
 
 export class User extends BaseEntity {
-
     @PrimaryGeneratedColumn()
 
     id: number;
 
+    @Column({ unique: true })
 
-
-    @Column()
-
-    firstName: string;
-
-
+    Email: string;
 
     @Column()
 
-    lastName: string;
-
-
+    Password: string;
 
     @Column()
 
-    age: number;
-
+    Username: string;
 }
-
