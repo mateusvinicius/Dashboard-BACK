@@ -1,3 +1,4 @@
+import { User } from '@Models/User';
 import { Controller } from '@Decorators/Controller';
 import { Post } from '@Decorators/Route';
 import UserService from '@Services/UserService';
@@ -13,9 +14,9 @@ export default class UserController {
   }
 
   @Post('/')
-  async auth(@Body(['email', 'password']) { email, password }:({email:string, password:string}), @Res() res:Response):Promise<Response> {
+  async auth(@Body(['email', 'password']) usuario:User, @Res() res:Response):Promise<Response> {
     try {
-      const user = await this.UserService.Auth(email, password);
+      const user = await this.UserService.Auth(usuario);
       return res.status(200);
     } catch (err) {
       res.status(400).json({

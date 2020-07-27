@@ -4,6 +4,8 @@ import {
 
 } from 'typeorm';
 
+import bcrypt from 'bcryptjs';
+
 @Entity()
 
 export class User extends BaseEntity {
@@ -21,5 +23,9 @@ export class User extends BaseEntity {
 
     @Column()
 
-    Username: string;
+    Username?: string;
+
+    public async CheckPassword(password:string) {
+      return bcrypt.compare(password, this.Password);
+    }
 }

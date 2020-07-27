@@ -1,9 +1,9 @@
 import { User } from '@Models/User';
 
 export default class UserService {
-  public async Auth(email:string, password:string) {
+  public async Auth(usuario:User) {
     const user:User = await User.findOne({
-      Email: email,
+      Email: usuario.Email,
     });
 
     if (!user) { throw new Error('Usuario não localizado !'); }
