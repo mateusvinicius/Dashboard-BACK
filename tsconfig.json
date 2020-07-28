@@ -20,12 +20,11 @@
      "forceConsistentCasingInFileNames": true,
      "baseUrl": ".",
      "paths": {
-   
       "@Decorators/*":["./src/Decorators/*"],
       "@Controllers/*":["./src/Controllers/*"],
       "@Services/*":["./src/Services/*"],
       "@Interfaces/*":["./src/Interfaces/*"],
-      "@Models/*":["./src/Models/*"],
+      "@Models/*":["./src/Models/*"]
      }
    },
    "include": [

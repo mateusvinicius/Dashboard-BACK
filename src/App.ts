@@ -6,6 +6,7 @@ import {
   ExpressMeta, Route, ParameterType, ParameterConfiguration,
 } from '@Decorators/meta';
 import { isString, isArray } from 'util';
+import dotenv from 'dotenv';
 
 class App {
     app:Application;
@@ -13,10 +14,11 @@ class App {
     constructor() {
       this.app = express();
       this.app.use(express.json());
+      this.LoadDotEnv();
       this.LoadControllers();
     }
 
-    LoadControllers() {
+    private LoadControllers() {
       AllController.forEach((Controllers) => {
         const meta: ExpressMeta = Reflect.getOwnPropertyDescriptor(Controllers.prototype, '__express_meta__').value;
         const router: Router = Router(meta.routerOptions);
@@ -48,7 +50,7 @@ class App {
       });
     }
 
-    extractParameters(req: Request, res: Response, next: NextFunction, params: ParameterConfiguration[]): any[] {
+    private extractParameters(req: Request, res: Response, next: NextFunction, params: ParameterConfiguration[]): any[] {
       if (!params || !params.length) {
         return [req, res, next];
       }
@@ -89,7 +91,7 @@ class App {
       return args;
     }
 
-    getParam(source: any, paramType: string, name: string |Array<any>): any {
+    private getParam(source: any, paramType: string, name: string |Array<any>): any {
       const param = source[paramType] || source;
       if (isString(name)) {
         return name ? param[name] : param;
@@ -102,6 +104,13 @@ class App {
 
         return array_temp;
       }
+    }
+
+    private LoadDotEnv() {
+      const envfile = process.env.NODE_ENV === 'test' ? '.env.dev' : '.env';
+
+      dotenv.config({ path: envfile });
+      console.log(process.env.NODE_ENV);
     }
 }
 export default new App().app;

@@ -4,9 +4,8 @@ export interface ValidatorClass{
 }
 
 export interface ValidatorMeta{
-  target: ValidatorClass |any;
   propertyKey:string;
-
+  type:ValidatorParam
 }
 
 export function getMetaValidate(target:ValidatorClass): Array<ValidatorMeta> {
